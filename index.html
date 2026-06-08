@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Riva — Recording, Mix & Master</title>
+  <meta name="description" content="Riccardo Rivadossi è un produttore e ingegnere del suono con studio a Puegnago del Garda (BS). Mix, master e produzione professionale per artisti e produttori." />
+  <!-- SEO -->
+  <meta name="keywords" content="studio di registrazione Brescia, mix master Lago di Garda, produzione musicale Brescia, ingegnere del suono Brescia, recording studio Puegnago, mix master remoto Italia" />
+  <meta name="author" content="Riccardo Rivadossi — Studio Riva" />
+  <link rel="canonical" href="https://riccardorrivadossi.github.io/StudioRiva/" />
+  <!-- Open Graph (anteprima link WhatsApp, Instagram, ecc.) -->
+  <meta property="og:title" content="Studio Riva — Recording, Mix & Master" />
+  <meta property="og:description" content="Produzione, mix e master professionale sul Lago di Garda e da remoto. Di Riccardo Rivadossi." />
+  <meta property="og:image" content="hero-bg.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <!-- Twitter/X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Studio Riva — Recording, Mix & Master" />
+  <meta name="twitter:description" content="Mix, master e produzione professionale sul Lago di Garda. Riccardo Rivadossi." />
+  <meta name="twitter:image" content="hero-bg.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --c-bg:      #0d1120;
+      --c-surface: #131929;
+      --c-surface2:#1a2238;
+      --c-text:    #dde3f0;
+      --c-muted:   #7a8aaa;
+      --c-sky:     #7fa3d4;
+      --c-accent:  #4a6db5;
+      --nav-h:     60px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--c-bg);
+      color: var(--c-text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--c-bg); }
+    ::-webkit-scrollbar-thumb { background: var(--c-accent); border-radius: 2px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h); z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(13,17,32,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(127,163,212,0.1);
+    }
+    .nav-logo img { height: 26px; display: block; }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a {
+      text-decoration: none; color: var(--c-muted);
+      font-size: 12px; letter-spacing: 0.09em; text-transform: uppercase;
+      font-weight: 400; transition: color 0.2s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--c-text); }
+    .nav-cta {
+      background: var(--c-accent) !important; color: #fff !important;
+      padding: 8px 18px; border-radius: 2px; font-weight: 500 !important;
+    }
+    .nav-cta:hover { background: #5a7ec5 !important; }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 6px; z-index: 200;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 1.5px; background: var(--c-text);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile nav overlay */
+    .nav-overlay {
+      display: none; position: fixed;
+      top: var(--nav-h); left: 0; right: 0; bottom: 0;
+      background: rgba(13,17,32,0.98); backdrop-filter: blur(20px);
+      z-index: 99; flex-direction: column;
+      padding: 40px 32px; gap: 8px;
+    }
+    .nav-overlay.open { display: flex; }
+    .nav-overlay a {
+      text-decoration: none; color: var(--c-text);
+      font-size: 22px; font-family: 'DM Serif Display', serif;
+      padding: 12px 0; border-bottom: 1px solid rgba(127,163,212,0.08);
+      transition: color 0.2s;
+    }
+    .nav-overlay a:hover { color: var(--c-sky); }
+    .nav-overlay .nav-overlay-cta {
+      margin-top: 24px; background: var(--c-accent); color: #fff;
+      text-align: center; border-radius: 2px; font-family: 'DM Sans', sans-serif;
+      font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 500; border-bottom: none; padding: 16px;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: calc(var(--nav-h) + 48px) 32px 72px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      filter: blur(3px);
+      transform: scale(1.05);
+      pointer-events: none;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(13,17,32,0.65) 0%,
+        rgba(13,17,32,0.45) 40%,
+        rgba(13,17,32,0.80) 100%
+      );
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--c-sky); margin-bottom: 20px; font-weight: 400;
+      opacity: 1;
+    }
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(44px, 10vw, 118px);
+      line-height: 0.95; letter-spacing: -0.02em; color: var(--c-text);
+      opacity: 1;
+    }
+    .hero-title em { font-style: italic; color: var(--c-sky); }
+    .hero-sub {
+      margin-top: 28px; max-width: 480px;
+      color: var(--c-muted); font-size: 15px; font-weight: 300; line-height: 1.85;
+      opacity: 1;
+    }
+    .hero-actions {
+      margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;
+      opacity: 1;
+    }
+    .btn-primary {
+      display: inline-block; background: var(--c-accent); color: #fff;
+      text-decoration: none; padding: 14px 28px;
+      font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 500; border-radius: 2px; transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: #5a7ec5; transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-block; border: 1px solid rgba(127,163,212,0.3); color: var(--c-muted);
+      text-decoration: none; padding: 14px 28px;
+      font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 400; border-radius: 2px; transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-ghost:hover { border-color: var(--c-sky); color: var(--c-text); }
+
+    /* ── DIVIDER ── */
+    hr.divider { border: none; border-top: 1px solid rgba(127,163,212,0.1); margin: 0; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 80px 32px; }
+    .section-label {
+      font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--c-sky); margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 5vw, 52px); line-height: 1.1;
+      color: var(--c-text);
+    }
+    .section-title em { font-style: italic; color: var(--c-sky); }
+    .section-body {
+      color: var(--c-muted); font-size: 15px; font-weight: 300; line-height: 1.9;
+    }
+    .section-intro {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: end;
+      max-width: 1100px; margin: 0 auto 56px;
+    }
+
+    /* ── CHI SONO ── */
+    #about { background: var(--c-surface); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 64px; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .about-image-wrap { position: relative; }
+    .about-img-placeholder {
+      width: 100%; aspect-ratio: 4/5;
+      background: var(--c-surface2); border-radius: 4px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; color: var(--c-muted); font-size: 13px;
+      border: 1px dashed rgba(127,163,212,0.18);
+    }
+    .about-img-placeholder svg { opacity: 0.3; }
+    .about-accent {
+      position: absolute; bottom: -20px; right: -20px;
+      width: 140px; height: 140px;
+      border: 1px solid rgba(74,109,181,0.3); border-radius: 2px; pointer-events: none;
+    }
+    .about-quote {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(17px, 2.2vw, 24px); font-style: italic;
+      color: var(--c-sky); line-height: 1.5; margin-bottom: 20px;
+    }
+
+    /* ── SERVIZI — 3 card ── */
+    #servizi { background: var(--c-bg); }
+    .services-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; max-width: 1100px; margin: 0 auto;
+    }
+    .service-card {
+      background: var(--c-surface);
+      border: 1px solid rgba(127,163,212,0.1); border-radius: 4px;
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .service-card:hover { border-color: rgba(127,163,212,0.28); transform: translateY(-4px); }
+    .service-card-img {
+      width: 100%; aspect-ratio: 4/3;
+      background: var(--c-surface2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--c-muted); font-size: 11px; letter-spacing: 0.1em;
+      border-bottom: 1px dashed rgba(127,163,212,0.12);
+      position: relative; overflow: hidden;
+    }
+    .service-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .service-card-img-label { font-size: 10px; letter-spacing: 0.1em; }
+    .service-card-body { padding: 24px 22px 28px; flex: 1; display: flex; flex-direction: column; }
+    .service-card-num {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--c-sky); margin-bottom: 8px;
+    }
+    .service-card-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(20px, 2.2vw, 28px); line-height: 1.15;
+      color: var(--c-text); margin-bottom: 14px;
+    }
+    .service-card-name em { font-style: italic; color: var(--c-sky); }
+    .service-card-desc {
+      color: var(--c-muted); font-size: 14px; font-weight: 300; line-height: 1.85; flex: 1;
+    }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--c-surface); }
+    .gallery-wrap { max-width: 1100px; margin: 0 auto; }
+    .gallery-header { margin-bottom: 32px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto;
+      gap: 10px;
+    }
+    .gallery-cell {
+      background: var(--c-surface2); border-radius: 3px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--c-muted); font-size: 10px; letter-spacing: 0.08em;
+      border: 1px dashed rgba(127,163,212,0.12);
+      position: relative; cursor: pointer; transition: opacity 0.2s;
+    }
+    .gallery-cell:hover { opacity: 0.82; }
+    .gallery-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-cell-label { position: absolute; font-size: 10px; }
+    .gc-1 { grid-column: 1/8;  aspect-ratio: 16/9; }
+    .gc-2 { grid-column: 8/13; aspect-ratio: 4/3; }
+    .gc-3 { grid-column: 1/5;  aspect-ratio: 4/3; }
+    .gc-4 { grid-column: 5/9;  aspect-ratio: 1/1; }
+    .gc-5 { grid-column: 9/13; aspect-ratio: 1/1; }
+
+    /* ── PORTFOLIO ── */
+    #portfolio { background: var(--c-bg); }
+    .portfolio-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px; max-width: 1100px; margin: 0 auto;
+      align-items: start;
+    }
+    .portfolio-cards { display: flex; flex-direction: column; gap: 16px; }
+    .portfolio-card {
+      background: var(--c-surface); border: 1px solid rgba(127,163,212,0.1);
+      border-radius: 4px; overflow: hidden;
+      display: grid; grid-template-columns: 90px 1fr;
+      transition: border-color 0.25s;
+    }
+    .portfolio-card:hover { border-color: rgba(127,163,212,0.25); }
+    .portfolio-cover {
+      aspect-ratio: 1/1; background: var(--c-surface2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--c-muted);
+      border-right: 1px dashed rgba(127,163,212,0.1);
+      position: relative; overflow: hidden;
+    }
+    .portfolio-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .portfolio-cover-label { font-size: 9px; letter-spacing: 0.06em; padding: 4px; text-align: center; }
+    .portfolio-info { padding: 14px 16px 16px; }
+    .portfolio-artist {
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--c-sky); margin-bottom: 3px;
+    }
+    .portfolio-title {
+      font-family: 'DM Serif Display', serif; font-size: 16px;
+      color: var(--c-text); margin-bottom: 6px;
+    }
+    .portfolio-desc { font-size: 12px; color: var(--c-muted); font-weight: 300; line-height: 1.6; }
+    .portfolio-badge {
+      display: inline-block; margin-top: 8px; font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--c-accent);
+      border: 1px solid rgba(74,109,181,0.35); padding: 3px 10px; border-radius: 2px;
+    }
+    .portfolio-playlists { display: flex; flex-direction: column; gap: 20px; }
+    .playlist-block {
+      background: var(--c-surface); border: 1px solid rgba(127,163,212,0.1);
+      border-radius: 4px; overflow: hidden;
+    }
+    .playlist-header { padding: 18px 22px 14px; border-bottom: 1px solid rgba(127,163,212,0.08); }
+    .playlist-label {
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--c-sky); margin-bottom: 4px;
+    }
+    .playlist-title { font-family: 'DM Serif Display', serif; font-size: 19px; color: var(--c-text); }
+    .playlist-embed { display: block; width: 100%; }
+
+    /* ── CONTATTI ── */
+    #contatti { background: var(--c-surface); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; max-width: 1100px; margin: 0 auto; align-items: start;
+    }
+    .contact-detail { display: flex; flex-direction: column; gap: 22px; margin-top: 36px; }
+    .contact-row { display: flex; flex-direction: column; gap: 4px; }
+    .contact-row-label {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-sky);
+    }
+    .contact-row-val { font-size: 16px; color: var(--c-text); text-decoration: none; transition: color 0.2s; }
+    .contact-row-val:hover { color: var(--c-sky); }
+    .contact-social {
+      display: flex; align-items: center; gap: 8px; text-decoration: none;
+      color: var(--c-muted); font-size: 14px; transition: color 0.2s;
+    }
+    .contact-social:hover { color: var(--c-sky); }
+    .contact-form { display: flex; flex-direction: column; gap: 18px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-muted); }
+    .form-input, .form-select, .form-textarea {
+      background: var(--c-surface2); border: 1px solid rgba(127,163,212,0.15);
+      color: var(--c-text); font-family: 'DM Sans', sans-serif;
+      font-size: 16px; font-weight: 300; padding: 14px 16px;
+      border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%;
+      -webkit-appearance: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: rgba(74,109,181,0.7);
+    }
+    .form-select { cursor: pointer; }
+    .form-textarea { resize: vertical; min-height: 130px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit {
+      background: var(--c-accent); color: #fff; border: none;
+      font-family: 'DM Sans', sans-serif; font-size: 14px;
+      letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+      padding: 16px 32px; border-radius: 2px; cursor: pointer;
+      width: 100%; transition: background 0.2s;
+    }
+    .form-submit:hover { background: #5a7ec5; }
+    .form-note { font-size: 12px; color: var(--c-muted); text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--c-bg); border-top: 1px solid rgba(127,163,212,0.08);
+      padding: 48px 32px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 28px;
+    }
+    .footer-logo img { height: 22px; }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { color: var(--c-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--c-text); }
+    .footer-copy {
+      width: 100%; text-align: center; color: var(--c-muted); font-size: 12px;
+      margin-top: 32px; opacity: 0.5;
+      border-top: 1px solid rgba(127,163,212,0.07); padding-top: 24px; line-height: 1.8;
+    }
+    .footer-copy a { color: inherit; }
+
+    /* ── BRUNO CARD ── */
+    .bruno-card {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+    }
+    .bruno-cover-wrap {
+      position: relative;
+      width: 90px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-right: 1px solid rgba(127,163,212,0.1);
+    }
+    .bruno-viewport {
+      width: 90px;
+      overflow: hidden;
+    }
+    .bruno-track {
+      display: flex;
+      transition: transform 0.35s ease;
+    }
+    .bruno-track img {
+      width: 90px;
+      height: 90px;
+      flex-shrink: 0;
+      object-fit: cover;
+      display: block;
+    }
+    .bruno-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(13,17,32,0.7);
+      border: none;
+      color: var(--c-text);
+      font-size: 18px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      padding: 0;
+      transition: background 0.2s;
+    }
+    .bruno-arrow:hover { background: rgba(74,109,181,0.8); }
+    .bruno-prev { left: 2px; }
+    .bruno-next { right: 2px; }
+    .bruno-dots {
+      display: flex;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .bruno-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--c-surface2);
+      border: 1px solid rgba(127,163,212,0.25);
+      cursor: pointer;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .bruno-dot.active { background: var(--c-accent); border-color: var(--c-accent); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 1; transform: none; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — TABLET 900px
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .section-intro { grid-template-columns: 1fr; gap: 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-image-wrap { max-width: 360px; }
+      .about-accent { display: none; }
+      .portfolio-layout { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — MOBILE 600px
+    ══════════════════════════════════════ */
+    @media (max-width: 600px) {
+      :root { --nav-h: 56px; }
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-overlay { padding: 32px 24px; }
+
+      section { padding: 64px 20px; }
+      #home { padding: calc(var(--nav-h) + 40px) 20px 60px; }
+      footer { padding: 40px 20px 28px; }
+
+      /* Hero */
+      .hero-title { font-size: clamp(40px, 12vw, 60px); }
+      .hero-sub { font-size: 15px; }
+      .hero-actions { flex-direction: column; gap: 10px; }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; padding: 16px 20px; }
+
+      /* Servizi: 1 colonna su mobile */
+      .services-cards { grid-template-columns: 1fr; gap: 16px; }
+      .service-card-img { aspect-ratio: 16/7; }
+
+      /* Gallery: semplificata su mobile */
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .gc-1 { grid-column: 1/3; aspect-ratio: 16/9; }
+      .gc-2 { grid-column: 1/3; aspect-ratio: 16/9; }
+      .gc-3 { grid-column: 1/2; aspect-ratio: 1/1; }
+      .gc-4 { grid-column: 2/3; aspect-ratio: 1/1; }
+      .gc-5 { grid-column: 1/3; aspect-ratio: 16/7; }
+
+      /* Portfolio cards: copertina più piccola */
+      .portfolio-card { grid-template-columns: 72px 1fr; }
+      .portfolio-playlists { margin-top: 0; }
+
+      /* Form: colonne → righe */
+      .form-row { grid-template-columns: 1fr; gap: 14px; }
+      .form-input, .form-select, .form-textarea { font-size: 16px; } /* evita zoom iOS */
+
+      /* Footer */
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .footer-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">
+      <img src="studio-riva-logo.png" alt="Studio Riva" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Chi sono</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contatti" class="nav-cta">Contattami</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-overlay" id="navOverlay">
+    <a href="#home" onclick="closeNav()">Home</a>
+    <a href="#about" onclick="closeNav()">Chi sono</a>
+    <a href="#servizi" onclick="closeNav()">Servizi</a>
+    <a href="#gallery" onclick="closeNav()">Gallery</a>
+    <a href="#portfolio" onclick="closeNav()">Portfolio</a>
+    <a href="#contatti" onclick="closeNav()" class="nav-overlay-cta">Contattami</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <p class="hero-label">Studio Riva — Puegnago del Garda, Brescia</p>
+    <h1 class="hero-title">
+      Suono che lascia<br><em>il segno.</em>
+    </h1>
+    <p class="hero-sub">
+      Mix, master e produzione professionale per artisti e produttori che vogliono un risultato all'altezza del loro progetto. Sul Lago di Garda o da remoto.
+    </p>
+    <div class="hero-actions">
+      <a href="#contatti" class="btn-primary">Lavoriamo insieme</a>
+      <a href="#servizi" class="btn-ghost">Scopri i servizi</a>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── CHI SONO ── -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-image-wrap reveal">
+        <img src="foto-riccardo.jpg" alt="Riccardo Rivadossi — Studio Riva"
+             style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:4px;">
+        <div class="about-accent"></div>
+      </div>
+      <div class="reveal">
+        <p class="section-label">Chi sono</p>
+        <p class="about-quote">"Seguo il progetto, non impongo formule."</p>
+        <p class="section-body">
+          Riccardo Rivadossi, in arte Riva, è un produttore e ingegnere del suono con studio a Puegnago del Garda (BS). Si è formato alla SAE Institute di Milano e nel tempo ha costruito un percorso che va dalla scena indipendente locale fino a collaborazioni con artisti distribuiti su etichette major.
+        </p>
+        <p class="section-body" style="margin-top:16px;">
+          Il suo approccio unisce rigore tecnico e sensibilità artistica: lavora per valorizzare l'identità di ogni progetto, senza sovrapporsi ma affiancando l'artista nelle scelte creative e sonore. Lo studio — 35 mq trattati acusticamente — è attrezzato per sessioni di registrazione di band, voci e strumenti, con una catena hardware dedicata alla voce e strumenti hardware tra cui sintetizzatori e un piano verticale.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── SERVIZI ── -->
+  <section id="servizi">
+    <div class="section-intro reveal">
+      <div>
+        <p class="section-label">Servizi</p>
+        <h2 class="section-title">Cosa puoi fare <em>con noi</em></h2>
+      </div>
+      <p class="section-body">
+        Dalla registrazione al master finale, ogni fase ha la stessa attenzione. Puoi seguire un solo step o affidarti a un percorso completo — in studio o da remoto.
+      </p>
+    </div>
+
+    <div class="services-cards">
+
+      <div class="service-card reveal">
+        <div class="service-card-img">
+          <img src="servizi-recording.jpg" alt="Recording — Studio Riva">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-num">01 — Recording</span>
+          <h3 class="service-card-name">Registrazione</h3>
+          <p class="service-card-desc">
+            Studio di 35 mq trattato acusticamente, pensato per band, voci e strumenti. Catena hardware dedicata alla voce — pre, EQ e compressione analogica — per un suono caldo e definito già in ripresa. Disponibili synth hardware e piano verticale.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-card-img">
+          <img src="servizi-mix.jpg" alt="Mix e Master — Studio Riva">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-num">02 — Mix & Master</span>
+          <h3 class="service-card-name">Mix & Master</h3>
+          <p class="service-card-desc">
+            Dal bilanciamento delle tracce alla release finale. Ogni brano viene curato con precisione per suonare al meglio su qualsiasi sistema — cuffie, casse, streaming. Disponibile in studio o inviando i file da remoto, ovunque tu sia.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-card-img">
+          <img src="servizi-produzione.jpg" alt="Produzione — Studio Riva">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-num">03 — Produzione</span>
+          <h3 class="service-card-name">Produzione</h3>
+          <p class="service-card-desc">
+            Produzione musicale a 360° per chi vuole costruire un suono riconoscibile. Riva lavora tra urban, alternative ed elettronica, con un utilizzo importante di sintetizzatori e una particolare attenzione alla manipolazione vocale e alla contaminazione tra generi.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery">
+    <div class="gallery-wrap">
+      <div class="gallery-header reveal">
+        <p class="section-label">Gallery</p>
+        <h2 class="section-title">Lo studio</h2>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-cell gc-1">
+          <img src="gallery-1.jpg" alt="Studio Riva — panoramica">
+        </div>
+        <div class="gallery-cell gc-2">
+          <img src="gallery-2.jpg" alt="Studio Riva — sala d'attesa">
+        </div>
+        <div class="gallery-cell gc-3">
+          <img src="gallery-3.jpg" alt="Studio Riva — desk e seduta artisti">
+        </div>
+        <div class="gallery-cell gc-4">
+          <img src="gallery-4.jpg" alt="Studio Riva — synth e piano">
+        </div>
+        <div class="gallery-cell gc-5">
+          <img src="gallery-5.jpg" alt="Studio Riva — esterno Lago di Garda">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── PORTFOLIO ── -->
+  <section id="portfolio">
+    <div class="section-intro reveal" style="margin-bottom:40px;">
+      <div>
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title">Lavori <em>selezionati</em></h2>
+      </div>
+      <p class="section-body">
+        Alcuni dei progetti realizzati come produttore, mixer o masterizzatore. Ascolta direttamente su Spotify.
+      </p>
+    </div>
+
+    <div class="portfolio-layout" style="max-width:1100px;margin:0 auto;">
+
+      <div class="portfolio-cards reveal">
+
+        <!-- Heartman -->
+        <div class="portfolio-card">
+          <div class="portfolio-cover">
+            <img src="portfolio-heartman.png" alt="Heartman — Più che solido">
+          </div>
+          <div class="portfolio-info">
+            <p class="portfolio-artist">Heartman</p>
+            <h3 class="portfolio-title">Più che solido</h3>
+            <p class="portfolio-desc">Album d'esordio distribuito da Sony/Epic. 12 tracce trap e R&B con feat. Nerone, Maury North e altri. Mix e master dell'intero progetto.</p>
+            <span class="portfolio-badge">Mix · Master</span>
+          </div>
+        </div>
+
+        <!-- Locker -->
+        <div class="portfolio-card">
+          <div class="portfolio-cover">
+            <img src="portfolio-locker.jpg" alt="Locker — Pressione">
+          </div>
+          <div class="portfolio-info">
+            <p class="portfolio-artist">Locker</p>
+            <h3 class="portfolio-title">Pressione</h3>
+            <p class="portfolio-desc">Progetto indipendente bresciano con forte risposta di pubblico. Produzione di diverse tracce tra cui Scintille, Terapia, Colpevole, Le fiamme e Pressione.</p>
+            <span class="portfolio-badge">Produzione</span>
+          </div>
+        </div>
+
+        <!-- Nanà -->
+        <div class="portfolio-card">
+          <div class="portfolio-cover">
+            <img src="portfolio-nana.jpg" alt="Nanà — EP">
+          </div>
+          <div class="portfolio-info">
+            <p class="portfolio-artist">Nanà</p>
+            <h3 class="portfolio-title">Titre à Choisir</h3>
+            <p class="portfolio-desc">EP sperimentale cantato in francese con sound elettronico e ricercato. Produzione, registrazione e direzione artistica completa.</p>
+            <span class="portfolio-badge">Produzione · Recording</span>
+          </div>
+        </div>
+
+        <!-- Bruno — card con slider copertine -->
+        <div class="portfolio-card bruno-card">
+          <div class="bruno-cover-wrap">
+            <button class="bruno-arrow bruno-prev" onclick="brunoSlide(-1)">&#8249;</button>
+            <div class="bruno-viewport">
+              <div class="bruno-track" id="brunoTrack">
+                <img src="portfolio-bruno-ora.jpg" alt="Bruno — Ora">
+                <img src="portfolio-bruno-ohissa.jpg" alt="Bruno — Oh Issa">
+                <img src="portfolio-bruno-amiko.jpg" alt="Bruno — Amiko Mio">
+              </div>
+            </div>
+            <button class="bruno-arrow bruno-next" onclick="brunoSlide(1)">&#8250;</button>
+          </div>
+          <div class="portfolio-info">
+            <p class="portfolio-artist">Bruno</p>
+            <h3 class="portfolio-title" id="brunoTitle">Ora</h3>
+            <p class="portfolio-desc" id="brunoDesc">Singolo d'esordio, ottobre 2023.</p>
+            <span class="portfolio-badge">Mix · Coproduzione · Recording</span>
+            <div class="bruno-dots">
+              <span class="bruno-dot active" onclick="brunoGo(0)"></span>
+              <span class="bruno-dot" onclick="brunoGo(1)"></span>
+              <span class="bruno-dot" onclick="brunoGo(2)"></span>
+            </div>
+            <span style="font-size:11px;color:var(--c-muted);margin-top:8px;display:block;letter-spacing:0.08em;">Epic Records / Sony Music Italy</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="portfolio-playlists reveal">
+        <div class="playlist-block">
+          <div class="playlist-header">
+            <p class="playlist-label">Playlist Spotify</p>
+            <h3 class="playlist-title">Mix selezionati</h3>
+          </div>
+          <iframe class="playlist-embed"
+            src="https://open.spotify.com/embed/playlist/0zXnGpY1cVbRKc7QL5oUQL?utm_source=generator&theme=0"
+            height="320" frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="playlist-block">
+          <div class="playlist-header">
+            <p class="playlist-label">Playlist Spotify</p>
+            <h3 class="playlist-title">Produzioni selezionate</h3>
+          </div>
+          <iframe class="playlist-embed"
+            src="https://open.spotify.com/embed/playlist/7E3TI24HFwjpvdeqyhS6B4?utm_source=generator&theme=0"
+            height="320" frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── CONTATTI ── -->
+  <section id="contatti">
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="section-label">Contatti</p>
+        <h2 class="section-title">Parliamo del <em>tuo progetto</em></h2>
+        <p class="section-body" style="margin-top:18px;">
+          Che tu abbia già le tracce pronte o stia ancora definendo l'idea, scrivimi. Rispondo entro 24 ore.
+        </p>
+        <div class="contact-detail">
+          <div class="contact-row">
+            <span class="contact-row-label">Telefono</span>
+            <!-- ISTRUZIONE: inserisci il tuo numero -->
+            <a href="tel:+393288762315" class="contact-row-val">+39 328 876 2315</a>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row-label">Email</span>
+            <!-- ISTRUZIONE: inserisci la tua email -->
+            <span class="contact-row-val">info@studioriva.it <span style="font-size:12px;color:var(--c-muted)">(in arrivo)</span></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row-label">Instagram</span>
+            <a href="https://www.instagram.com/studioriva.it/" target="_blank" class="contact-social">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+              </svg>
+              @studioriva.it
+            </a>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row-label">Dove siamo</span>
+            <a href="https://maps.app.goo.gl/al3P6A2e2ATk0JIax" target="_blank" class="contact-row-val">Puegnago del Garda (BS) →</a>
+          </div>
+          <div style="margin-top:8px;border-radius:4px;overflow:hidden;border:1px solid rgba(127,163,212,0.12);">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2773.4!2d10.5833!3d45.5333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDMyJzAwLjAiTiAxMMKwMzUnMDAuMCJF!5e0!3m2!1sit!2sit!4v1234567890"
+              width="100%" height="180" style="border:0;display:block;filter:invert(90%) hue-rotate(180deg);"
+              allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row-label">Da remoto</span>
+            <span class="contact-row-val">Mix e master disponibili ovunque</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="nome">Nome</label>
+            <input class="form-input" id="nome" type="text" placeholder="Il tuo nome" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" type="email" placeholder="tua@email.com" required autocomplete="email" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="servizio">Cosa stai cercando</label>
+          <select class="form-select" id="servizio">
+            <option value="" disabled selected>Seleziona un servizio</option>
+            <option>Mix</option>
+            <option>Master</option>
+            <option>Mix + Master</option>
+            <option>Recording</option>
+            <option>Produzione completa</option>
+            <option>Non so ancora — parliamone</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="messaggio">Messaggio</label>
+          <textarea class="form-textarea" id="messaggio"
+            placeholder="Raccontami il progetto — genere, stato di avanzamento, cosa stai cercando..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Invia messaggio</button>
+        <p class="form-note" id="formStatus"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="studio-riva-logo.png" alt="Studio Riva" />
+      </div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Chi sono</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+        <li><a href="https://www.instagram.com/studioriva.it/" target="_blank">Instagram</a></li>
+      </ul>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="cookie.html">Cookie</a></li>
+      </ul>
+    </div>
+    <p class="footer-copy">
+      © 2026 Studio Riva — Riccardo Rivadossi — Puegnago del Garda (BS)<br>
+      <a href="privacy.html">Privacy Policy</a> · <a href="cookie.html">Cookie Policy</a>
+    </p>
+  </footer>
+
+  <script>
+    /* ── Mobile nav ── */
+    const hamburger   = document.getElementById('hamburger');
+    const navOverlay  = document.getElementById('navOverlay');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navOverlay.classList.toggle('open');
+      document.body.style.overflow = navOverlay.classList.contains('open') ? 'hidden' : '';
+    });
+    function closeNav() {
+      hamburger.classList.remove('open');
+      navOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* ── Scroll reveal ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+    // Also make visible any reveal already in viewport on load
+    document.querySelectorAll('.reveal').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.classList.add('visible');
+      } else {
+        observer.observe(el);
+      }
+    });
+
+    /* ── Form ── */
+    /* Bruno slider */
+    let brunoIdx = 0;
+    const brunoTitles = ['Ora', 'Oh Issa', 'Amiko Mio'];
+    const brunoDescs = [
+      'Singolo d'esordio, ottobre 2023.',
+      'Secondo singolo, febbraio 2025.',
+      'Terzo singolo, maggio 2025.'
+    ];
+    function brunoGo(idx) {
+      brunoIdx = idx;
+      const track = document.getElementById('brunoTrack');
+      if (track) track.style.transform = 'translateX(-' + (idx * 90) + 'px)';
+      const title = document.getElementById('brunoTitle');
+      if (title) title.textContent = brunoTitles[idx];
+      const desc = document.getElementById('brunoDesc');
+      if (desc) desc.textContent = brunoDescs[idx];
+      document.querySelectorAll('.bruno-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === idx);
+      });
+    }
+    function brunoSlide(dir) {
+      brunoGo((brunoIdx + dir + 3) % 3);
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const status = document.getElementById('formStatus');
+      /*
+        ISTRUZIONE — per ricevere le email gratis:
+        1. Vai su https://formspree.io → crea account → nuovo form
+        2. Aggiungi al tag <form>: action="https://formspree.io/f/XXXXXXXX" method="POST"
+        3. Rimuovi onsubmit="handleSubmit(event)" e questo script
+      */
+      status.textContent = 'Messaggio inviato! Ti rispondo entro 24 ore.';
+      status.style.color = '#7fa3d4';
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>
