@@ -112,46 +112,48 @@
       display: flex; flex-direction: column; justify-content: flex-end;
       padding: calc(var(--nav-h) + 48px) 32px 72px;
       position: relative; overflow: hidden;
+      background-color: var(--c-bg);
     }
-    .hero-bg {
-      position: absolute; inset: 0;
+    /* Background image as pseudo-element so blur never affects text */
+    #home::before {
+      content: '';
+      position: absolute; inset: -10px;
       background-image: url('hero-bg.jpg');
       background-size: cover;
       background-position: center 30%;
       filter: blur(3px);
-      transform: scale(1.05);
-      pointer-events: none;
+      z-index: 0;
     }
-    .hero-overlay {
+    /* Dark overlay as pseudo-element */
+    #home::after {
+      content: '';
       position: absolute; inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(13,17,32,0.65) 0%,
-        rgba(13,17,32,0.45) 40%,
-        rgba(13,17,32,0.80) 100%
+        rgba(13,17,32,0.60) 0%,
+        rgba(13,17,32,0.40) 40%,
+        rgba(13,17,32,0.82) 100%
       );
-      pointer-events: none;
+      z-index: 1;
     }
+    /* All direct children of #home above the overlay */
+    #home > * { position: relative; z-index: 2; }
     .hero-label {
       font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--c-sky); margin-bottom: 20px; font-weight: 400;
-      opacity: 1;
     }
     .hero-title {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(44px, 10vw, 118px);
       line-height: 0.95; letter-spacing: -0.02em; color: var(--c-text);
-      opacity: 1;
     }
     .hero-title em { font-style: italic; color: var(--c-sky); }
     .hero-sub {
       margin-top: 28px; max-width: 480px;
       color: var(--c-muted); font-size: 15px; font-weight: 300; line-height: 1.85;
-      opacity: 1;
     }
     .hero-actions {
       margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;
-      opacity: 1;
     }
     .btn-primary {
       display: inline-block; background: var(--c-accent); color: #fff;
@@ -559,8 +561,6 @@
 
   <!-- ── HERO ── -->
   <section id="home">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
     <p class="hero-label">Studio Riva — Puegnago del Garda, Brescia</p>
     <h1 class="hero-title">
       Suono che lascia<br><em>il segno.</em>
